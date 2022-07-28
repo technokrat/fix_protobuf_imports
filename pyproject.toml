@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "fix_protobuf_imports"
-version = "0.1.4"
+version = "0.1.5"
 authors = [{ name = "Markus Wegmann", email = "mw@technokrat.ch" }, { name = "Noah Hüsser", email = "nh@technokrat.ch" }]
 description = "A script to fix relative imports (from and to nested sub-directories) within compiled `*_pb2.py` Protobuf files."
 readme = "README.md"

@@ -21,12 +21,12 @@ E.g. you might have the following file/module structure:
     - `__init__.py`
   - `__init__.py`
 
-Now assume, `a_sub.proto` is importing `a.proto`, `b.proto` and `c.proto`.
+Now assume, `c.proto` is importing `a.proto`, `b.proto` and `d.proto`.
 
-`protoc` will generate the following import statements:
+`protoc` will generate the following import statements for `c_pb2.py`:
 
 ```python
-# a_sub_pb2.py
+# c_pb2.py
 
 from google.protobuf import descriptor as _descriptor
 
@@ -38,7 +38,7 @@ from sub.nested import d_pb2 as sub_dot_nested__d__pb2
 # ...
 ```
 
-Using these modules will not work under Python 3, as the imports are not relative. As it can get quite cumbersome to fix these issues, this script will convert the imports automatically.
+Using these modules will not work under Python 3, as the imports are not relative. As it can get quite cumbersome to fix these issues, this script will convert the imports automatically:
 
 ```bash
 fix-protobuf-imports /path/to/python_out/dir
@@ -47,7 +47,7 @@ fix-protobuf-imports /path/to/python_out/dir
 This will result in the following working imports:
 
 ```python
-# a_sub_pb2.py
+# c_pb2.py
 
 from google.protobuf import descriptor as _descriptor
 
