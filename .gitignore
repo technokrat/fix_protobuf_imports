@@ -1,0 +1,7 @@
+.vscode/
+
+*.egg-info
+*.tar.gz
+*.whl
+
+build/

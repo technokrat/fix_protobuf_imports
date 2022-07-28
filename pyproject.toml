@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "fix_protobuf_imports"
+version = "0.1.4"
+authors = [{ name = "Markus Wegmann", email = "mw@technokrat.ch" }, { name = "Noah Hüsser", email = "nh@technokrat.ch" }]
+description = "A script to fix relative imports (from and to nested sub-directories) within compiled `*_pb2.py` Protobuf files."
+readme = "README.md"
+license = { file="LICENSE" }
+requires-python = ">=3.6"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    "click",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/technokrat/fix_protobuf_imports"
+"Bug Tracker" = "https://github.com/technokrat/fix_protobuf_imports/issues"
+
+[project.scripts]
+fix-protobuf-imports = "fix_protobuf_imports.fix_protobuf_imports:main"
