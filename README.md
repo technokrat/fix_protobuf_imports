@@ -58,3 +58,19 @@ from ..sub.nested import d_pb2 as sub_dot_nested__d__pb2
 
 # ...
 ```
+
+## Development
+This project uses the Python project managment tool `poetry`.
+
+1. Install Poetry
+  ```sh
+    curl -sSL https://install.python-poetry.org | python3 - --preview
+  ```
+2. Install dependencies
+  ```sh
+    poetry install
+  ```
+3. Test script
+  ```sh
+    poetry run fix-protobuf-imports --help
+  ```

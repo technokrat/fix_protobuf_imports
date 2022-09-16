@@ -3,5 +3,6 @@
 *.egg-info
 *.tar.gz
 *.whl
+*.pyc
 
 build/
