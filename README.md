@@ -1,8 +1,11 @@
 # fix-protobuf-imports
 
+[![PyPI version](https://badge.fury.io/py/fix-protobuf-imports.svg)](https://badge.fury.io/py/fix-protobuf-imports)
+
 This script will fix relative imports (from and to nested sub-directories) within compiled `*pb2.py` and `*pb2.pyi` Protobuf files/modules generated from `protoc --python_out --mypy_out`:
 
 ```bash
+pip install fix-protobuf-imports
 fix-protobuf-imports /path/to/python_out/dir
 ```
 
