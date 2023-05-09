@@ -39,6 +39,7 @@ def fix_protobuf_imports(root_dir, dry):
 
     py_files = list(root_dir.glob("**/*_pb2.py"))
     pyi_files = list(root_dir.glob("**/*_pb2.pyi"))
+    grpc_files = list(root_dir.glob("**/*_pb2_grpc.py"))
 
     py_files_dictionary = {}
     for path in py_files:
@@ -49,6 +50,11 @@ def fix_protobuf_imports(root_dir, dry):
     for path in pyi_files:
         name, info = generate_lookup(path)
         pyi_files_dictionary[name] = info
+
+    grpc_files_dictionary = {}
+    for path in grpc_files:
+        name, info = generate_lookup(path)
+        grpc_files_dictionary[name] = info
 
     def fix_protobuf_import_in_line(
         original_line, referencing_info: ProtobufFilePathInfo, pyi=False
@@ -142,6 +148,12 @@ def fix_protobuf_imports(root_dir, dry):
         info,
     ) in pyi_files_dictionary.items():
         fix_protobuf_imports_in_file(name, info, pyi=True)
+
+    for (
+        name,
+        info,
+    ) in grpc_files_dictionary.items():
+        fix_protobuf_imports_in_file(name, info)
 
 def main():
     fix_protobuf_imports()
